@@ -1,0 +1,5 @@
+query getArticles {
+  articles(limit: 1) {
+    title
+  }
+}
