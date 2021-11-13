@@ -24,8 +24,10 @@ export const Navbar = () => {
                 <Logo h="6" iconColor="blue.500" />
               </Box>
               <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
-                <NavLink.Desktop active href="/poems">Poems</NavLink.Desktop>
-                <NavLink.Desktop href="/about-me">About me</NavLink.Desktop>
+                <NavLink.Desktop href="/poems" color={mode("purple.500", "purple.500")}>Poems</NavLink.Desktop>
+                <NavLink.Desktop href="/about-me" color={mode("gray.700", "gray.200")}>
+                  About me
+                </NavLink.Desktop>
               </HStack>
             </HStack>
             <Flex align="center">
@@ -40,6 +42,6 @@ export const Navbar = () => {
           </Flex>
         </Box>
       </Box>
-    </Box>
+    </Box >
   )
 }
