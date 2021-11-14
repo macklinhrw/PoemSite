@@ -20,14 +20,14 @@ const PoemsPage = () => {
   return (
     <>
       <Navbar />
-      <Box mx={{ lg: "40vw" }} w="max">
+      <Box mx="auto" w="max">
         {data?.getPoemBySlug && (
-          <VStack mt="10" >
-            <Text as="h1" fontSize="2xl" fontWeight="bold" fontFamily="serif">{data.getPoemBySlug.title}</Text>
+          <VStack mt="10">
+            <Text as="h1" fontSize={{ base: "xl", lg: "2xl" }} fontWeight="bold" fontFamily="serif">{data.getPoemBySlug.title}</Text>
             <Text>
               {data.getPoemBySlug.content.split("\n").map((line) => {
                 return (
-                  <Text textAlign="center" fontSize="xl" fontFamily="serif">{line}</Text>
+                  <Text textAlign="center" fontSize={{ base: "lg", lg: "xl" }} fontFamily="serif">{line}</Text>
                 )
               })}
             </Text>
