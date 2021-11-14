@@ -24,6 +24,7 @@ export type MutationCreatePoemArgs = {
   content: Scalars['String'];
   hasTitle: Scalars['Boolean'];
   isDraft: Scalars['Boolean'];
+  slug: Scalars['String'];
   title: Scalars['String'];
 };
 
@@ -33,6 +34,7 @@ export type PoemClass = {
   hasTitle: Scalars['Boolean'];
   id: Scalars['String'];
   isDraft: Scalars['Boolean'];
+  slug: Scalars['String'];
   title: Scalars['String'];
 };
 
@@ -40,6 +42,7 @@ export type Query = {
   __typename?: 'Query';
   getAllPoems?: Maybe<Array<PoemClass>>;
   getPoem?: Maybe<PoemClass>;
+  getPoemBySlug?: Maybe<PoemClass>;
 };
 
 
@@ -47,10 +50,22 @@ export type QueryGetPoemArgs = {
   id: Scalars['String'];
 };
 
+
+export type QueryGetPoemBySlugArgs = {
+  slug: Scalars['String'];
+};
+
 export type GetAllPoemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllPoemsQuery = { __typename?: 'Query', getAllPoems?: Array<{ __typename?: 'PoemClass', title: string, content: string }> | null | undefined };
+export type GetAllPoemsQuery = { __typename?: 'Query', getAllPoems?: Array<{ __typename?: 'PoemClass', title: string, content: string, slug: string }> | null | undefined };
+
+export type GetPoemBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type GetPoemBySlugQuery = { __typename?: 'Query', getPoemBySlug?: { __typename?: 'PoemClass', title: string, content: string, hasTitle: boolean } | null | undefined };
 
 
 export const GetAllPoemsDocument = gql`
@@ -58,6 +73,7 @@ export const GetAllPoemsDocument = gql`
   getAllPoems {
     title
     content
+    slug
   }
 }
     `;
@@ -88,3 +104,40 @@ export function useGetAllPoemsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetAllPoemsQueryHookResult = ReturnType<typeof useGetAllPoemsQuery>;
 export type GetAllPoemsLazyQueryHookResult = ReturnType<typeof useGetAllPoemsLazyQuery>;
 export type GetAllPoemsQueryResult = Apollo.QueryResult<GetAllPoemsQuery, GetAllPoemsQueryVariables>;
+export const GetPoemBySlugDocument = gql`
+    query getPoemBySlug($slug: String!) {
+  getPoemBySlug(slug: $slug) {
+    title
+    content
+    hasTitle
+  }
+}
+    `;
+
+/**
+ * __useGetPoemBySlugQuery__
+ *
+ * To run a query within a React component, call `useGetPoemBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPoemBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPoemBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useGetPoemBySlugQuery(baseOptions: Apollo.QueryHookOptions<GetPoemBySlugQuery, GetPoemBySlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPoemBySlugQuery, GetPoemBySlugQueryVariables>(GetPoemBySlugDocument, options);
+      }
+export function useGetPoemBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPoemBySlugQuery, GetPoemBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPoemBySlugQuery, GetPoemBySlugQueryVariables>(GetPoemBySlugDocument, options);
+        }
+export type GetPoemBySlugQueryHookResult = ReturnType<typeof useGetPoemBySlugQuery>;
+export type GetPoemBySlugLazyQueryHookResult = ReturnType<typeof useGetPoemBySlugLazyQuery>;
+export type GetPoemBySlugQueryResult = Apollo.QueryResult<GetPoemBySlugQuery, GetPoemBySlugQueryVariables>;

@@ -9,8 +9,9 @@ import {
   ApolloProvider,
 } from "@apollo/client";
 
+console.log(process.env.SERVER)
 const client = new ApolloClient({
-  uri: process.env.SERVER,
+  uri: process.env.SERVER as string,
   cache: new InMemoryCache()
 });
 

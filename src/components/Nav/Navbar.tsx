@@ -19,12 +19,12 @@ export const Navbar = () => {
         <Box maxW="7xl" mx="auto" py="4" px={{ base: '6', md: '8' }}>
           <Flex as="nav" justify="space-between">
             <HStack spacing="8">
-              <Box as="a" href="#" rel="home">
+              <Box as="a" href="/" rel="home">
                 <VisuallyHidden>Envelope app</VisuallyHidden>
                 <Logo h="6" iconColor="blue.500" />
               </Box>
               <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
-                <NavLink.Desktop href="/poems" color={mode("purple.500", "purple.500")}>
+                <NavLink.Desktop href="/" color={mode("purple.500", "purple.500")}>
                   Poems
                 </NavLink.Desktop>
                 <NavLink.Desktop href="/about-me" color={mode("gray.700", "gray.200")}>

@@ -2,5 +2,6 @@ query getAllPoems {
   getAllPoems {
     title
     content
+    slug
   }
 }

@@ -1,0 +1,7 @@
+query getPoemBySlug($slug: String!) {
+  getPoemBySlug(slug: $slug) {
+    title
+    content
+    hasTitle
+  }
+}
