@@ -3,5 +3,6 @@ query getAllPoems {
     title
     content
     slug
+    imageLink
   }
 }

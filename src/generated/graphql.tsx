@@ -23,6 +23,7 @@ export type Mutation = {
 export type MutationCreatePoemArgs = {
   content: Scalars['String'];
   hasTitle: Scalars['Boolean'];
+  imageLink: Scalars['String'];
   isDraft: Scalars['Boolean'];
   slug: Scalars['String'];
   title: Scalars['String'];
@@ -33,6 +34,7 @@ export type PoemClass = {
   content: Scalars['String'];
   hasTitle: Scalars['Boolean'];
   id: Scalars['String'];
+  imageLink: Scalars['String'];
   isDraft: Scalars['Boolean'];
   slug: Scalars['String'];
   title: Scalars['String'];
@@ -58,14 +60,14 @@ export type QueryGetPoemBySlugArgs = {
 export type GetAllPoemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllPoemsQuery = { __typename?: 'Query', getAllPoems?: Array<{ __typename?: 'PoemClass', title: string, content: string, slug: string }> | null | undefined };
+export type GetAllPoemsQuery = { __typename?: 'Query', getAllPoems?: Array<{ __typename?: 'PoemClass', title: string, content: string, slug: string, imageLink: string }> | null | undefined };
 
 export type GetPoemBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type GetPoemBySlugQuery = { __typename?: 'Query', getPoemBySlug?: { __typename?: 'PoemClass', title: string, content: string, hasTitle: boolean } | null | undefined };
+export type GetPoemBySlugQuery = { __typename?: 'Query', getPoemBySlug?: { __typename?: 'PoemClass', title: string, content: string, hasTitle: boolean, imageLink: string } | null | undefined };
 
 
 export const GetAllPoemsDocument = gql`
@@ -74,6 +76,7 @@ export const GetAllPoemsDocument = gql`
     title
     content
     slug
+    imageLink
   }
 }
     `;
@@ -110,6 +113,7 @@ export const GetPoemBySlugDocument = gql`
     title
     content
     hasTitle
+    imageLink
   }
 }
     `;

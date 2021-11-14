@@ -30,7 +30,7 @@ const Index = () => {
                 <LinkBox bg={mode("gray.200", "gray.700")} border={mode("", "1px")} borderColor="whiteAlpha.300"
                   rounded="lg" shadow="md" mb="10" transition="all 0.2s" as="article" _hover={{ shadow: { sm: 'lg' } }}
                   overflow="hidden" h="440" w="80">
-                  <Img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t45.1600-4/cp0/q75/spS444/p235x350/241688929_6255935065504_8169602291895650284_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=67cdda&_nc_ohc=N9hKebKuKNgAX8VmsH8&_nc_ht=scontent-sjc3-1.xx&oh=070c7960c76e9969a35329a5a106ade4&oe=6194BA1C"
+                  <Img src={poem.imageLink}
                     alt={poem.title} objectFit="cover" h="60" w="80" />
                   {poem.title && (
                     <Text my="1" textAlign="center" fontSize="xl" fontWeight="bold" fontFamily="">

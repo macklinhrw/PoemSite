@@ -20,7 +20,7 @@ const PoemsPage = () => {
   return (
     <>
       <Navbar />
-      <Box mx="40vw" w="max">
+      <Box mx={{ lg: "40vw" }} w="max">
         {data?.getPoemBySlug && (
           <VStack mt="10" >
             <Text as="h1" fontSize="2xl" fontWeight="bold" fontFamily="serif">{data.getPoemBySlug.title}</Text>

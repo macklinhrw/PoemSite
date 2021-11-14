@@ -3,5 +3,6 @@ query getPoemBySlug($slug: String!) {
     title
     content
     hasTitle
+    imageLink
   }
 }
