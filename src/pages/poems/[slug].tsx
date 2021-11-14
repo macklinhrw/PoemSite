@@ -6,8 +6,8 @@ import { VStack, Box, Text } from "@chakra-ui/react"
 const PoemsPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-  //@ts-ignore
   console.log(slug)
+  //@ts-ignore
   const { loading, data, error } = useGetPoemBySlugQuery({ skip: typeof slug !== "string", variables: { slug: slug } });
 
   if (error) {
@@ -36,6 +36,10 @@ const PoemsPage = () => {
       </Box>
     </>
   )
+}
+
+export async function getServerSideProps() {
+
 }
 
 export default PoemsPage;
