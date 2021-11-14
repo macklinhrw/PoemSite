@@ -33,7 +33,7 @@ export const Navbar = () => {
               </HStack>
             </HStack>
             <Flex align="center">
-              <HStack spacing="8" display={{ base: 'none', md: 'flex' }}>
+              <HStack spacing="8" display='flex'>
                 {/*<NavLink.Desktop>Log in </NavLink.Desktop>*/}
                 <DarkToggle />
               </HStack>
