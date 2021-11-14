@@ -7,16 +7,16 @@ import {
   useColorModeValue as mode,
 } from '@chakra-ui/react'
 import * as React from 'react'
+import Link from "next/link"
 
 interface DesktopNavLinkProps extends HTMLChakraProps<'a'> {
   active?: boolean
 }
 
 const DesktopNavLink = (props: DesktopNavLinkProps) => {
-  const { active, ...rest } = props
+  const { active, href, ...rest } = props
   return (
     <chakra.a
-      href="#"
       aria-current={active ? 'page' : undefined}
       fontWeight="semibold"
       color={mode('gray.600', 'gray.300')}
@@ -40,7 +40,6 @@ const MobileNavLink = (props: MobileNavLinkProps) => {
   return (
     <Flex
       as="a"
-      href={href}
       m="-3"
       p="3"
       align="center"

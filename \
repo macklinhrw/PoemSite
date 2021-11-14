@@ -27,12 +27,12 @@ export const Navbar = () => {
               </Box>
               <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
                 <Link href="/">
-                  <Box fontWeight="semibold" as="button" color={mode("purple.500", "purple.500")}>
+                  <Box as="button" color={mode("purple.500", "purple.500")}>
                     Poems
                   </Box>
                 </Link>
                 <Link href="/about-me">
-                  <Box fontWeight="semibold" as="button" bg="inherit" color={mode("gray.700", "gray.200")}>
+                  <Box as="button" bg="inherit" color={mode("gray.700", "gray.200")}>
                     About me
                   </Box>
                 </Link>

@@ -5,16 +5,17 @@ import {
   LinkBox,
   Text,
   SimpleGrid,
-  Link,
-  LinkOverlay,
   Img,
   Box,
+  LinkOverlay,
   Spacer,
+  Link as CLink,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
 import { Navbar } from "../components/Nav/Navbar"
 import React from "react";
 import { useGetAllPoemsQuery } from "../generated/graphql";
+import Link from "next/link"
 
 const Index = () => {
   const { data, loading } = useGetAllPoemsQuery();
@@ -44,10 +45,16 @@ const Index = () => {
                       )
                     })}
                   </Text>
-                  <LinkOverlay href={`/poems/${poem.slug}`}></LinkOverlay>
-                  <Text textAlign="center" mt="4">
-                    <Link href={`/poems/${poem.slug}`}>Read more...</Link>
-                  </Text>
+                  <Link href={`/poems/${poem.slug}`}>
+                    <LinkOverlay href={`/poems/${poem.slug}`}></LinkOverlay>
+                  </Link>
+                  <Flex mx="auto">
+                    <Link href={`/poems/${poem.slug}`}>
+                      <CLink mt="4" mx="auto" href={`/poems/${poem.slug}`}>
+                        Read more...
+                      </CLink>
+                    </Link>
+                  </Flex>
                 </LinkBox>
               </Flex>
             )
