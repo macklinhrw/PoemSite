@@ -38,8 +38,8 @@ const PoemsPage = () => {
   )
 }
 
-export async function getServerSideProps() {
+//export async function getServerSideProps() {
 
-}
+//}
 
 export default PoemsPage;

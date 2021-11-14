@@ -12,7 +12,7 @@ import {
 console.log(process.env.SERVER)
 const client = new ApolloClient({
   uri: process.env.SERVER as string,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 
