@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import { useGetPoemBySlugQuery } from "../../generated/graphql";
 import { Navbar } from "../../components/Nav/Navbar";
-import { VStack, Box, Text } from "@chakra-ui/react"
+import { VStack, Box, Text, Flex } from "@chakra-ui/react"
 
 const PoemsPage = () => {
   const router = useRouter();
@@ -20,14 +20,14 @@ const PoemsPage = () => {
   return (
     <>
       <Navbar />
-      <Box mx="auto" w="max">
+      <Box mx="auto" w="max" maxW="100%">
         {data?.getPoemBySlug && (
           <VStack mt="10">
             <Text as="h1" fontSize={{ base: "xl", lg: "2xl" }} fontWeight="bold" fontFamily="serif">{data.getPoemBySlug.title}</Text>
-            <Text>
+            <Text wordBreak="break-word">
               {data.getPoemBySlug.content.split("\n").map((line) => {
                 return (
-                  <Text textAlign="center" fontSize={{ base: "lg", lg: "xl" }} fontFamily="serif">{line}</Text>
+                  <Text wordBreak="break-word" textAlign="center" fontSize={{ sm: "md", md: "lg", lg: "xl" }} fontFamily="serif">{line}</Text>
                 )
               })}
             </Text>
