@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 
 console.log(process.env.SERVER)
-const client = new ApolloClient({
+export const client = new ApolloClient({
   uri: process.env.SERVER as string,
   cache: new InMemoryCache(),
 });
