@@ -8,24 +8,16 @@ import { Navbar } from "../../components/Nav/Navbar";
 import { VStack, Box, Text, Flex } from "@chakra-ui/react";
 import { client } from "../_app";
 
-const PoemsPage = () => {
+const PoemsPage = (props) => {
   const router = useRouter();
   const { slug } = router.query;
-  //@ts-ignore
-  const { loading, data, error } = useGetPoemBySlugQuery({
-    skip: typeof slug !== "string",
-    variables: { slug: slug },
-  });
-
-  if (error) {
-    return <>There was an error!</>;
-  }
+  const { poem } = props
 
   return (
     <>
       <Navbar />
       <Box mx="auto" w="max" maxW="100%">
-        {data?.getPoemBySlug && (
+        {poem && (
           <VStack mt="10">
             <Text
               as="h1"
@@ -33,10 +25,10 @@ const PoemsPage = () => {
               fontWeight="bold"
               fontFamily="serif"
             >
-              {data.getPoemBySlug.title}
+              {poem.title}
             </Text>
             <Text wordBreak="break-word">
-              {data.getPoemBySlug.content.split("\n").map((line) => {
+              {poem.content.split("\n").map((line) => {
                 return (
                   <Text
                     wordBreak="break-word"
